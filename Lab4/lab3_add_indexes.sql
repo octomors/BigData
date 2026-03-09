@@ -1,6 +1,7 @@
 BEGIN;
 
 -- Индексы для ускорения запросов из Lab3.
+-- Для быстрого поиска последней цены по каждому товару (Query 01).
 CREATE INDEX IF NOT EXISTS product_price_change_product_date_idx
   ON public.product_price_change (product_id, date_price_change DESC);
 
@@ -22,6 +23,7 @@ CREATE INDEX IF NOT EXISTS purchase_item_product_id_idx
 CREATE INDEX IF NOT EXISTS product_manufacturer_category_idx
   ON public.product (manufacturer_id, category_id);
 
+-- Используется в запросе с UPPER(manufacturer_name) (Query 03).
 CREATE INDEX IF NOT EXISTS manufacturer_name_upper_idx
   ON public.manufacturer (UPPER(manufacturer_name));
 
