@@ -23,7 +23,7 @@ CREATE INDEX IF NOT EXISTS product_manufacturer_category_idx
   ON public.product (manufacturer_id, category_id);
 
 CREATE INDEX IF NOT EXISTS manufacturer_name_upper_idx
-  ON public.manufacturer (UPPER(manufacturer_name) text_pattern_ops);
+  ON public.manufacturer (UPPER(manufacturer_name));
 
 CREATE INDEX IF NOT EXISTS customer_first_name_idx
   ON public.customer (first_name);
