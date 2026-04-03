@@ -43,6 +43,8 @@ CREATE INDEX IF NOT EXISTS manufacturer_name_upper_idx
 -- Query 06, 07, 13: поиск производителя по ILIKE/равенству.
 CREATE INDEX IF NOT EXISTS manufacturer_name_trgm_idx
   ON public.manufacturer USING gin (manufacturer_name gin_trgm_ops);
+CREATE INDEX IF NOT EXISTS manufacturer_name_idx
+  ON public.manufacturer (manufacturer_name);
 
 -- Query 04: топ самых длинных названий товаров.
 CREATE INDEX IF NOT EXISTS product_name_length_idx

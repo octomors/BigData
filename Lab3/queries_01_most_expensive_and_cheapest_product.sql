@@ -1,5 +1,6 @@
 -- 1) Самый дорогой и самый дешевый товар (по текущей зафиксированной цене в product_price_change)
 -- Если у товара несколько изменений цены, берем последнюю по дате.
+EXPLAIN ANALYZE
 WITH latest_price AS (
   SELECT
     ppc.product_id,
